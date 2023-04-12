@@ -39,10 +39,12 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name', 'email']);
+        $data = $request->only(['name', 'email', 'password']);
 
         User::create($data);
-        return redirect()->back();
+        
+        //return redirect()->back(); //adciona o usuário e continua na mesma página
+        return redirect()->route('users');
     }
 
     /**
