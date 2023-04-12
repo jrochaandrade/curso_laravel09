@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -39,7 +39,10 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only(['name', 'email']);
+
+        User::create($data);
+        return redirect()->back();
     }
 
     /**
@@ -99,6 +102,9 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+        return redirect()->back();
     }
 }

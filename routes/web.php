@@ -18,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-
+Route::get('/users/add', [HomeController::class, 'create'])->name('create');
+Route::post('/users/add', [HomeController::class, 'store'])->name('store');
 Route::get('/users', [HomeController::class, 'index']);
 Route::get('/users/{id}', [HomeController::class, 'show'])->name('show');
 Route::get('/users/edit/{id}', [HomeController::class, 'edit'])->name('edit');
 Route::put('/users/update/{id}', [HomeController::class, 'update'])->name('update');
-//Route::delete('/users/delete/{id}', [HomeController::class, 'destroy'])->name('destroy');
+Route::delete('/users/delete/{id}', [HomeController::class, 'destroy'])->name('destroy');

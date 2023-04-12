@@ -9,6 +9,7 @@
   <body>
     <main class="container">
         <h1>index</h1>
+        <a type="button" href="{{route('create')}}" class="btn btn-primary">ADICIONAR NOVOS USUÁRIOS</a>
 
         <table class="table">
             <thead>
@@ -33,9 +34,13 @@
                 </td>
                 <td>
                   <a type="button" href="{{route('edit', $user->id)}}" class="btn btn-warning">EDITAR</a>
-                </td>
+                </td>                
                 <td>
-                  <a type="button" href="{{route('destroy', $user->id}}" class="btn btn-danger">DELETAR</a>
+                  <form action="{{route('destroy', $user->id)}}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger">DELETAR</button>
+                  </form>
                 </td>
 
 
