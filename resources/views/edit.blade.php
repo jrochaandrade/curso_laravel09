@@ -8,27 +8,22 @@
   </head>
   <body>
     <main class="container">
-        <h1>show</h1>
+        <h1>edit</h1>
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>                
-            </tr>
-            </thead>
-            <tbody>
-            
-            <tr>
-                <th scope="row">{{$user->id}}</th>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
-            </tr>
-           
-                
-            </tbody>
-        </table>
+        <form method="post" action="{{route('update', $user->id)}}">
+          @csrf
+          @method('put')
+          <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" name="name" value="{{$user->name}}" class="form-control" id="name" aria-describedby="emailHelp">            
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" value="{{$user->email}}" class="form-control" id="email">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Atualizar</button>
+        </form>
 
     </main>
     

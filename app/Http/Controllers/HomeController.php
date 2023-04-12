@@ -66,7 +66,11 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -77,8 +81,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {                 
+        
+        $data = $request->only(['name', 'email']);
+
+        $user = User::find($id);
+        
+        $user->update($data);
+        return redirect()->back();
     }
 
     /**

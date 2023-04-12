@@ -16,7 +16,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
-                <th scope="col">Botão</th>
+                <th scope="col">Ver</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Deletar</th>
 
             </tr>
             </thead>
@@ -29,6 +31,13 @@
                 <td>
                   <a type="button" href="{{route('show', $user->id)}}" class="btn btn-success">VER</a>
                 </td>
+                <td>
+                  <a type="button" href="{{route('edit', $user->id)}}" class="btn btn-warning">EDITAR</a>
+                </td>
+                <td>
+                  <a type="button" href="{{route('destroy', $user->id}}" class="btn btn-danger">DELETAR</a>
+                </td>
+
 
                 
             </tr>
