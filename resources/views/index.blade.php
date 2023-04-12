@@ -16,7 +16,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
-                <th scope="col">Botao</th>
+                <th scope="col">Botão</th>
 
             </tr>
             </thead>
@@ -27,7 +27,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>
-                    <a type="button" href="" class="btn btn-success">VER</a>
+                  <a type="button" href="{{route('show', $user->id)}}" class="btn btn-success">VER</a>
                 </td>
 
                 
