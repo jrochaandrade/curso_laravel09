@@ -1,12 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace {{ namespace }};
 
-use App\Models\User;
+use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class {{ class }} extends Controller
 {
+
+    public function __construct()
+    {
+
+
+
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,11 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::get();
-
-        return view('index', [
-            'users' => $users
-        ]);
+        //
     }
 
     /**
@@ -28,7 +32,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return view('create');
+        //
     }
 
     /**
@@ -39,12 +43,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name', 'email', 'password']);
-
-        User::create($data);
-        
-        //return redirect()->back(); //adciona o usuário e continua na mesma página
-        return redirect()->route('users');
+        //
     }
 
     /**
@@ -55,12 +54,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id); //Encontrar usuário pela id
-
-        return view('show', [
-            'user' => $user
-        ]);
-        
+        //
     }
 
     /**
@@ -71,11 +65,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-
-        return view('edit', [
-            'user' => $user
-        ]);
+        //
     }
 
     /**
@@ -86,14 +76,8 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {                 
-        
-        $data = $request->only(['name', 'email']);
-
-        $user = User::find($id);
-        
-        $user->update($data);        
-        return redirect()->route('users');
+    {
+        //
     }
 
     /**
@@ -104,9 +88,6 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-
-        $user->delete();
-        return redirect()->back();
+        //
     }
 }
