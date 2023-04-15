@@ -26,7 +26,7 @@
             <input type="password" name="password" class="form-control" id="password">
           </div>
           
-          <button type="submit" class="btn btn-primary">Atualizar</button>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
         </form>
 
     </main>

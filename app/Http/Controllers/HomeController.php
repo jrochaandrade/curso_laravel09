@@ -41,7 +41,7 @@ class HomeController extends Controller
     {
         $data = $request->only(['name', 'email', 'password']);
 
-        User::create($data);
+        User::create($data);        
         
         //return redirect()->back(); //adciona o usuário e continua na mesma página
         return redirect()->route('users');
@@ -53,10 +53,19 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $user = User::find($id); //Encontrar usuário pela id
 
+    /* public function show($id) //Nesse caso ele esta buscando pela ID do usuário
+    {
+        $user = User::find($id); 
+
+        return view('show', [
+            'user' => $user
+        ]);
+        
+    } */
+
+    public function show(User $user)
+    { 
         return view('show', [
             'user' => $user
         ]);
