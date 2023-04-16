@@ -65,13 +65,25 @@ class HomeController extends Controller
         
     } */
 
-    public function show(User $user)
+    //Quarta edição
+    public function show($user)
     { 
+        dd($user);
         return view('show', [
             'user' => $user
         ]);
         
     }
+
+    //Terceira edição, show busca por usuário e id.
+    /* public function show(User $user)
+    { 
+        return view('show', [
+            'user' => $user
+        ]);
+        
+    } */
+
 
     /**
      * Show the form for editing the specified resource.
@@ -79,14 +91,23 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+
+    //Quarta edição, buscar por user sem precisar do find
+    public function edit($user)
+    {
+        return view('edit', [
+            'user' => $user
+        ]);
+    }
+
+    /* public function edit($id)
     {
         $user = User::find($id);
 
         return view('edit', [
             'user' => $user
         ]);
-    }
+    } */
 
     /**
      * Update the specified resource in storage.
@@ -95,7 +116,16 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+    //Quarta edição busca por user sem precisar do find
+     public function update(Request $request, $user)
+     {         
+         $data = $request->only(['name', 'email']);         
+         $user->update($data);        
+         return redirect()->route('users');
+     }
+
+    /* public function update(Request $request, $id)
     {                 
         
         $data = $request->only(['name', 'email']);
@@ -104,7 +134,7 @@ class HomeController extends Controller
         
         $user->update($data);        
         return redirect()->route('users');
-    }
+    } */
 
     /**
      * Remove the specified resource from storage.
@@ -112,11 +142,19 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    //Quarta edição busca por user sem precisar do find
+    public function destroy($user)
+    {
+        $user->delete();
+        return redirect()->back();
+    }
+
+    /* public function destroy($id)
     {
         $user = User::find($id);
 
         $user->delete();
         return redirect()->back();
-    }
+    } */
 }
