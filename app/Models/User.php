@@ -42,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* public function getRouteKeyName() //Fazer busca no pagina show por nome, email ou qualquer dado que eu quiser, bastar alterar o campo 'email' abaixo.
+    {
+        return 'email';
+    } */
 }
