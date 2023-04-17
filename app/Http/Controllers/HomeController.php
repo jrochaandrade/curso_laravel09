@@ -44,7 +44,7 @@ class HomeController extends Controller
         User::create($data);        
         
         //return redirect()->back(); //adciona o usuário e continua na mesma página
-        //return redirect()->route('users');
+        //return redirect()->route('users');//Aciona o usuário e volta para index
         return redirect()->route('create');
     }
 
@@ -68,7 +68,7 @@ class HomeController extends Controller
     //Quarta edição
     public function show($user)
     { 
-        dd($user);
+        //dd($user);
         return view('show', [
             'user' => $user
         ]);
